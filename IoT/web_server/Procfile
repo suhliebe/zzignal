@@ -1,0 +1,2 @@
+web: gunicorn index:app
+web: gunicorn index:app --timeout 30
