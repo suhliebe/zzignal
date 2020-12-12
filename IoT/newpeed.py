@@ -2,7 +2,7 @@ import feedparser
 
 
 
-urls = (
+urls = (#뉴스 고르시면 됩니다 필요한거
 
     "http://fs.jtbc.joins.com/RSS/newsflash.xml",               #속보	
     # 'http://fs.jtbc.joins.com/RSS/politics.xml',              #정치	
