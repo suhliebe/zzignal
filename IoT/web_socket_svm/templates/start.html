@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content%}
+<script src="{{url_for('static', filename = 'js/result.js')}}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<body>
+<div class="row" style="text-align: center; margin-top:5%; margin-bottom:3%;">
+	<p style="font-size:50px;">서비스를 선택해주세요.</p>
+	<br>
+	<p style="font-size:40px;">1. 날씨 2. 뉴스 3. 개피곤</p>
+</div>
+<div class="row">
+	<div class="col" style="text-align: center;">
+		<video autoplay="true" id="videoElement" ></video>
+		<div style="display:none;">
+			<canvas id="canvasElement"></canvas>
+			<img id="photo">
+		</div>
+	</div>
+</div>
+
+</body>
+{% endblock %}
