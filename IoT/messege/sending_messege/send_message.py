@@ -7,7 +7,7 @@ import os.path
 libdir = os.path.dirname(__file__)
 sys.path.append(os.path.split(libdir)[0])
 
-from auth import auth
+from ./auth_ import auth
 
 apiKey = 'NCSLIPZ9VIPR1W3N'
 apiSecret = 'O6RMZCI4WYHO5DZKYBCBTEBRQHVMRYKL'
@@ -15,8 +15,8 @@ apiSecret = 'O6RMZCI4WYHO5DZKYBCBTEBRQHVMRYKL'
 if __name__ == '__main__':
     data = {
         'message': {
-            'to': '01092119647',#119라던가 보낼번호
-            'from': '01092119647',#"인증받은 번호만 됩니다"
+            'to': '01020169782',#119라던가 보낼번호
+            'from': '01020169782',#"인증받은 번호만 됩니다"
             'text': 'test'#여기에 주소랑 입력하면 될거같습니다
         }
     }

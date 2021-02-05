@@ -39,7 +39,7 @@ def test_api_request():
     today = datetime.date.today().isoformat()
     time_min = today + 'T00:00:00+09:00'      # 일정을 조회할 최소 날짜
     time_max = '2020-12-31' + 'T23:59:59+09:00'      # 일정을 조회할 최대 날짜
-    max_results = 1                           # 일정을 조회할 최대 개수
+    max_results = 30                           # 일정을 조회할 최대 개수
     is_single_events = True                   # 반복 일정의 여부
     orderby = 'startTime'                     # 일정 정렬
 
@@ -53,6 +53,7 @@ def test_api_request():
     flask.session['credentials'] = credentials_to_dict(credentials)
 
     print(service)
+    print(events_result)
     return flask.jsonify(**events_result)
 
 
@@ -153,4 +154,4 @@ if __name__ == '__main__':
 
   # Specify a hostname and port that are set as a valid redirect URI
   # for your API project in the Google API Console.
-  app.run('localhost', 8080, debug=True)
+  app.run('localhost', 5000, debug=True)
