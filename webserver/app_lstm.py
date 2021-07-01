@@ -88,7 +88,7 @@ client.on_message = on_message #콜백설정
 client.connect("192.168.0.133", 1883, 60) #라즈베리파이3 MQTT 브로커에 연결
 
 def get_weather():
-    # apiKey = 'ed1bf3c638a2675545a28dcb6354c23c'
+    # apiKey = 'API_KEY'
     # print("geting weather")
     # city = 'Seoul'
     # url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&mode=json&APPID=' + apiKey
@@ -96,26 +96,22 @@ def get_weather():
     # j = json.loads(data)
 
     # Get json from dark skys api
-    APIKEY = '6b4e2599041ea02b9f19e4e86ae23f59'
+    APIKEY = 'API_KEY'
     LAT, LON =37.512828, 127.052707
     URL = 'https://api.darksky.net/forecast/{}/{},{}'.format(APIKEY, LAT, LON)
-    # print(URL)
     r = requests.get(URL)
     json = r.json()
-    # print(json.dumps(j, indent=4))
-    # print(json)
 
     temperatureHigh = json['daily']['data'][0]['temperatureHigh']
     temperatureLow = json['daily']['data'][0]['temperatureLow']
     week_summary = json['daily']['summary']
-    # Get current and hourly data
+    
     currently = json['currently']
     hourly = json['hourly']
-    # print(hourly['data'])
-    # Fetch important information for display
+    
     title = currently['summary']
     icon = icon_lookup[currently['icon']]
-    # temperature = int(round(currently['temperature']))
+    
     temperature = int(round((currently['temperature']-32)*5/9))
     desc = hourly['summary'].rstrip('.')
 
@@ -480,7 +476,7 @@ if __name__ == '__main__':
     # 사용자 요청의 끝마다 커밋(데이터베이스에 저장,수정,삭제등의 동작을 쌓아놨던 것들의 실행명령)을 한다.
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     # 수정사항에 대한 track을 하지 않는다. True로 한다면 warning 메시지유발
-    app.config['SECRET_KEY'] = 'wcsfeufhwiquehfdx'
+    app.config['SECRET_KEY'] = 'API_KEY'
 
     csrf = CSRFProtect()
     csrf.init_app(app)
